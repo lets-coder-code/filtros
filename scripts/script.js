@@ -4,14 +4,15 @@ let radio_400 = document.getElementById("radio-400");
 let radio_600 = document.getElementById("radio-600");
 let radio_800 = document.getElementById("radio-800");
 let radio_1000 = document.getElementById("radio-1000");
-let elementosRadio = document.getElementsByClassName("radio-class");
+let elementosRadio = document.getElementsByClassName("clase-radio");
+let cuerpoTabla = document.getElementById("cuerpo-tabla");
 
 let iniciar = function () {
   let autor = etiquetaAutor.value;
   let libros = obtenerLibros(autor);
-  let librosObtenidos = filtrarLibros(libros);
-  console.log(librosObtenidos)
+  let librosObtenidos = filtrarLibrosPorPaginas(libros);
   limpiarPagina();
+  pintarLibrosObtenidos(librosObtenidos);
 };
 
 let obtenerLibros = function (autorElegido) {
@@ -24,7 +25,7 @@ let obtenerLibros = function (autorElegido) {
   return librosAutor;
 };
 
-let filtrarLibros = function (librosSeleccionados) {
+let filtrarLibrosPorPaginas = function (librosSeleccionados) {
   let librosFiltrados = [];
   for (let i = 0; i < librosSeleccionados.length; i++) {
     if (radio_200.checked == true && librosSeleccionados[i].pages < 200) {
@@ -60,14 +61,29 @@ let filtrarLibros = function (librosSeleccionados) {
     }
   }
   if (librosFiltrados.length == 0) {
-    return "No hay libros.";
+    return libros;
   }
   return librosFiltrados;
 };
 
-let limpiarPagina = function(){
-  etiquetaAutor.value = "";
-  for(let i=0; i<elementosRadio.length; i++){
-    elementosRadio[i].checked = false;
+let pintarLibrosObtenidos = function(arrayLibrosObtenidos){
+  for(let i=0; i<arrayLibrosObtenidos.length; i++){
+    pintarLibro(arrayLibrosObtenidos[i]);
   }
 }
+
+let pintarLibro = function(obj) {
+  let tr = document.createElement("tr");
+  tr.innerHTML = `<td>${obj.title}</td><td>${obj.author}</td><td>${obj.year}</td><td>${obj.language}</td><td>${obj.pages}</td>`;
+  cuerpoTabla.appendChild(tr);
+};
+
+let limpiarPagina = function () {
+  etiquetaAutor.value = "";
+  for (let i = 0; i < elementosRadio.length; i++) {
+    elementosRadio[i].checked = false;
+  }
+  cuerpoTabla.innerHTML = "";
+};
+
+pintarLibrosObtenidos(libros);

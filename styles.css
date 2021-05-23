@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 10rem;
+}
+
+.contenedor-input-texto {
+  display: flex;
+  justify-content: space-between;
+  width: 25rem;
+}
+
+.contenedor-radio {
+  width: 50rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-bottom-1 {
+  margin-bottom: 1rem;
+}

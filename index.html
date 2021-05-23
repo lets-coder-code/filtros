@@ -1,22 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Libros</title>
-</head>
-<body>
-  <h1>Encuentra los libros de tu autor favorito</h1>
-  <label for="name">Nombre del autor</label>
-  <input type="text" id="autor" name="name" />
-  <label><input type="radio" id="radio-200" name="booksSelection" class="radio-class"/>&lt200</label>
-  <label><input type="radio" id="radio-400" name="booksSelection" class="radio-class"/>&lt400</label>
-  <label><input type="radio" id="radio-600" name="booksSelection" class="radio-class"/>&lt600</label>
-  <label><input type="radio" id="radio-800" name="booksSelection" class="radio-class"/>&lt800</label>
-  <label><input type="radio" id="radio-1000" name="booksSelection" class="radio-class"/>&lt1000</label>
-  <button onclick="iniciar()">Buscar libros</button>
-  <script src="./libros.js"></script>
-  <script src="./script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Libros</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="contenedor-principal">
+      <h2 class="margin-bottom-1">Busca los libros de tu autor favorito</h2>
+      <div class="contenedor-input-texto margin-bottom-1">
+        <label for="name">Nombre del autor:</label>
+        <input type="text" id="autor" name="name" />
+      </div>
+      <p class="margin-bottom-1">
+        Si quieres busca los libros por número de páginas puedes seleccionar una
+        de las opciones:
+      </p>
+      <div class="contenedor-radio margin-bottom-1">
+        <label
+          ><input
+            type="radio"
+            id="radio-200"
+            name="seleccion-de-libros"
+            class="clase-radio"
+          />&lt200 páginas</label
+        >
+        <label
+          ><input
+            type="radio"
+            id="radio-400"
+            name="seleccion-de-libros"
+            class="clase-radio"
+          />&lt400 páginas</label
+        >
+        <label
+          ><input
+            type="radio"
+            id="radio-600"
+            name="seleccion-de-libros"
+            class="clase-radio"
+          />&lt600 páginas</label
+        >
+        <label
+          ><input
+            type="radio"
+            id="radio-800"
+            name="seleccion-de-libros"
+            class="clase-radio"
+          />&lt800 páginas</label
+        >
+        <label
+          ><input
+            type="radio"
+            id="radio-1000"
+            name="seleccion-de-libros"
+            class="clase-radio"
+          />&lt1000 páginas</label
+        ><label
+        ><input
+          type="radio"
+          id="radio-1000"
+          name="seleccion-de-libros"
+          class="clase-radio"
+        />Todos</label
+      >
+        <button onclick="iniciar()">Buscar libros</button>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Año</th>
+            <th>Idioma</th>
+            <th>Páginas</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+        </tbody>
+      </table>
+    </div>
+    <script src="./scripts/libros.js"></script>
+    <script src="./scripts/script.js"></script>
+  </body>
 </html>
